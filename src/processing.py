@@ -1,14 +1,12 @@
-def filter_by_state(id_list: list, state: str = "EXECUTED") -> list:
+from typing import Any, Dict, List
+
+
+def filter_by_state(data: List[Dict[str, Any]], state: str = "EXECUTED") -> List[Dict[str, Any]]:
     """Функция принимает список словарей и возвращает те словари,
     в которых значения ключа state = EXECUTED"""
-    new_id_list = []
-    for items in id_list:
-        if items["state"] == state:
-            new_id_list.append(items)
-
-    return new_id_list
+    return [item for item in data if item.get("state") == state]
 
 
-def sort_by_date(id_list: list, sort_option: bool = True) -> list:
+def sort_by_date(data: List[Dict[str, Any]], sort_option: bool = True) -> List[Dict[str, Any]]:
     """Функция сортирует список словарей по датам в порядке убывания"""
-    return sorted(id_list, key=lambda x: x["date"], reverse=sort_option)
+    return sorted(data, key=lambda x: x["date"], reverse=sort_option)

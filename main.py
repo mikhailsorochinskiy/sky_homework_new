@@ -5,7 +5,7 @@ card_number = input("Введите номер карты или счета: ")
 operation_date = input("Введите дату: ")
 state = input("Введите значение по умолчанию: ")
 sort_option = input("Введите True, если по убыванию, False - по возрастанию: ")
-id_list = [
+data = [
     {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
     {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
     {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
@@ -15,8 +15,11 @@ id_list = [
 if __name__ == "__main__":
     print(mask_account_card(card_number))
     print(get_date(operation_date))
-    print(filter_by_state(id_list, state="EXECUTED"))
-    if sort_option != "False":
-        print(sort_by_date(id_list, sort_option=True))
+    if state != "CANCELED":
+        print(filter_by_state(data))
     else:
-        print(sort_by_date(id_list, sort_option=False))
+        print(filter_by_state(data, state))
+    if sort_option != "False":
+        print(sort_by_date(data))
+    else:
+        print(sort_by_date(data, False))
