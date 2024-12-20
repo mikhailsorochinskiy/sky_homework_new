@@ -1,11 +1,12 @@
 import pytest
 
-from src.widget import mask_account_card, get_date
+from src.widget import get_date, mask_account_card
 
 
-@pytest.mark.parametrize('card_number, expected',[('Visa Platinum 2202121234561234', 'Visa Platinum 2202 12** **** 1234'),
-                                                  ('Maestro 2202121234561234', 'Maestro 2202 12** **** 1234'),
-                                                  ('Счет 73654108430135874305', 'Счет **4305')])
+@pytest.mark.parametrize('card_number, expected',
+                         [('Visa Platinum 2202121234561234', 'Visa Platinum 2202 12** **** 1234'),
+                          ('Maestro 2202121234561234', 'Maestro 2202 12** **** 1234'),
+                          ('Счет 73654108430135874305', 'Счет **4305')])
 def test_mask_account_card(card_number, expected):
     assert mask_account_card(card_number) == expected
 
