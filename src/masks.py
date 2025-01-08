@@ -1,3 +1,5 @@
+# from src.decorators import log
+# @log(filename='')
 def get_mask_card_number(card_number: str) -> str:
     """Замена цифр с 7 по 12 элемент на '*', и разбиение по 4 цифры"""
     if len(card_number) != 16 or card_number.isdigit() is False:

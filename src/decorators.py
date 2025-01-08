@@ -17,12 +17,15 @@ def log(filename=""):
             else:
                 with open(filename, 'w') as file:
                     file.write(result)
+            return result
         return wrapper
     return decorator
 
+@log(filename="")
+def get_mask_account(account_number: str) -> str:
+    """Номер счета принимает вид: **XXXX (X - цифра)"""
+    if len(account_number) != 20 or account_number.isdigit() is False:
+        raise ValueError('Некорректное значение')
+    return "**" + account_number[-4:]
 
-@log(filename="mylog.txt")
-def my_function(x, y):
-    return x / y
-
-my_function(1, 0)
+print(get_mask_account('12345678'))
