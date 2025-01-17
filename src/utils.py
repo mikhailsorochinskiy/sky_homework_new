@@ -12,6 +12,3 @@ def get_operations_from_json(file: str) -> list[dict]:
     if type(operations) is not list:
         return []
     return operations
-
-
-print(get_operations_from_json("../data/operations.json1"))

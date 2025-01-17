@@ -6,7 +6,7 @@ def get_mask_card_number(card_number: str) -> str:
     for i in range(6, 12):
         update_card_number[i] = "*"
     result_card_number = "".join(update_card_number)
-    return " ".join(result_card_number[i : i + 4] for i in range(0, len(result_card_number), 4))
+    return " ".join(result_card_number[i: i + 4] for i in range(0, len(result_card_number), 4))
 
 
 def get_mask_account(account_number: str) -> str:

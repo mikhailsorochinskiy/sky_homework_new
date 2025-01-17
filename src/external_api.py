@@ -3,8 +3,6 @@ import os
 import requests
 from dotenv import load_dotenv
 
-from src.utils import get_operations_from_json
-
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
@@ -20,7 +18,3 @@ def get_amount_transaction(transaction: dict) -> float:
     headers = {"apikey": API_KEY}
     response = requests.request("GET", url, headers=headers, data=payload)
     return response.json()["result"]
-
-
-trans = get_operations_from_json("../data/operations.json")
-print(get_amount_transaction(trans[1]))
