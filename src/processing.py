@@ -6,9 +6,6 @@ from src.widget import get_date
 def filter_by_state(data: List[Dict[str, Any]], state: str = "EXECUTED") -> List[Dict[str, Any]]:
     """Функция принимает список словарей и возвращает те словари,
     в которых значения ключа state = EXECUTED"""
-    for item in data:
-        if 'state' not in item.keys():
-            raise ValueError
     return [item for item in data if item.get("state") == state]
 
 

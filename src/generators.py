@@ -5,7 +5,7 @@ def filter_by_currency(operations: List[Dict[Any, Any]], currency: str) -> Itera
     """Функция принимает на вход список словарей, представляющих транзакции. Функция должна возвращать итератор,
     который поочередно выдает транзакции, где валюта операции соответствует заданной (например, USD)
     """
-    return filter(lambda x: x.get("operationAmount").get("currency").get("name") == currency, operations)
+    return filter(lambda x: x.get("operationAmount").get("currency").get("code") == currency, operations)
 
 
 def transaction_descriptions(operations: List[Dict[str, Any]]) -> Iterator:

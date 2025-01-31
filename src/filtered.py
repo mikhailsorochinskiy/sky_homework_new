@@ -1,19 +1,19 @@
 import re
 from collections import Counter
 
-from src.utils import get_operations_from_json
-
 
 def get_list_with_main_string(transactions: list[dict], text: str) -> list[dict]:
     """Функция принимает список транзакций и искомый текст и возвращает список, в которых
     есть заданный текст"""
-    pattern = re.compile(f'{text}')
-    result_list = [transaction for transaction in transactions if re.search(pattern, str(transaction))]
+    result_list = [transaction for transaction in transactions
+                   if re.search(f'{text}', str(transaction), flags=re.IGNORECASE)]
     return result_list
 
 
 def get_counter_type_operation(transactions: list[dict], types: list) -> dict:
-    list_types = [transaction.get("description") for transaction in transactions if transaction.get("description") is not None]
+    """Функция принимает список транзакций и список типов операций и возвращает словарь о количестве каждой операции"""
+    list_types = [transaction.get("description") for transaction in transactions
+                  if transaction.get("description") is not None]
     counter_types = Counter(list_types)
     dict_types = dict()
     for item in types:
