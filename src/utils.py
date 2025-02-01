@@ -2,7 +2,7 @@ import json
 import logging
 
 logging.basicConfig(
-    filename="../logs/utils.log",
+    filename="C:/Users/Viktor/PycharmProjects/sky_homework_new/logs/utils.log",
     filemode="w",
     format="%(asctime)s - %(name)s - %(levelname)s: %(message)s",
     level=logging.DEBUG,

@@ -1,7 +1,7 @@
 import logging
 
 logging.basicConfig(
-    filename="../logs/masks.log",
+    filename=f'C:/Users/Viktor/PycharmProjects/sky_homework_new/logs/masks.log',
     filemode="w",
     format="%(asctime)s - %(name)s - %(levelname)s: %(message)s",
     level=logging.DEBUG,
